@@ -34,6 +34,26 @@
       "ia32"
     ]
   },
+  "builds": {
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true,
+      "installerIcon": "build/icon.png",
+      "uninstallerIcon": "build/icon.png",
+      "uninstallDisplayName": "Uninstall StepWise",
+      "license": "EULA"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png",
+      "publisherName": "Yogesh Jog"
+    },
+    "buildVersion": "0.1"
+  },
   "dependencies": {
     "desktop-screenshot": "^0.1.1",
     "iohook": "^0.4.4"

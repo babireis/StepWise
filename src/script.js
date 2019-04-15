@@ -13,7 +13,8 @@ const electron = require('electron')
 var displayWidth=screen.getPrimaryDisplay().bounds.width;
 var displayHeight=screen.getPrimaryDisplay().bounds.height;
 //get current working directory
-var basepath = app.getAppPath();
+var basepath = app.getPath('pictures');
+console.log(basepath);
 //set global var for
 var recordingState = 0;
 
