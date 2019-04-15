@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>StepWise</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Jua" rel="stylesheet">
+    <link rel="stylesheet" href="w3.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+    <style>
+        .cabin {
+            font-family: 'Cabin', sans-serif;
+        }
+
+        .jua {
+            font-family: 'Jua', sans-serif;
+            text-decoration-color: darkslategrey;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+
+        svg {
+            display: block;
+            font: 10.5em 'Montserrat';
+            width: 800px;
+            height: 120px;
+            margin: 0 auto;
+            font-weight: 800;
+        }
+
+        .text-copy {
+            fill: none;
+            stroke: white;
+            stroke-dasharray: 6% 29%;
+            stroke-width: 5px;
+            stroke-dashoffset: 0%;
+            animation: stroke-offset 5.5s infinite linear;
+        }
+
+        .text-copy:nth-child(1) {
+            stroke: teal;
+            animation-delay: -1;
+        }
+
+        .text-copy:nth-child(2) {
+            stroke: turquoise;
+            animation-delay: -2s;
+        }
+
+        .text-copy:nth-child(3) {
+            stroke: blue;
+            animation-delay: -3s;
+        }
+
+        .text-copy:nth-child(4) {
+            stroke: darkseagreen;
+            animation-delay: -4s;
+        }
+
+        .text-copy:nth-child(5) {
+            stroke: dodgerblue;
+            animation-delay: -5s;
+        }
+
+        @keyframes stroke-offset {
+            100% {
+                stroke-dashoffset: -35%;
+            }
+        }
+
+        /* Ripple effect */
+        .ripple {
+            background-position: center;
+            transition: background 0.8s;
+        }
+
+        .ripple:hover {
+            background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+        }
+
+        .ripple:active {
+            background-color: #6eb9f7;
+            background-size: 100%;
+            transition: background 0s;
+        }
+
+
+        /* The snackbar - position it at the bottom and in the middle of the screen */
+        #snackbar {
+            visibility: hidden;
+            /* Hidden by default. Visible on click */
+            min-width: 250px;
+            /* Set a default minimum width */
+            margin-left: -125px;
+            /* Divide value of min-width by 2 */
+            background-color: #333;
+            /* Black background color */
+            color: #fff;
+            /* White text color */
+            text-align: center;
+            /* Centered text */
+            border-radius: 2px;
+            /* Rounded borders */
+            padding: 16px;
+            /* Padding */
+            position: fixed;
+            /* Sit on top of the screen */
+            z-index: 1;
+            /* Add a z-index if needed */
+            left: 50%;
+            /* Center the snackbar */
+            bottom: 30px;
+            /* 30px from the bottom */
+        }
+
+        /* Show the snackbar when clicking on a button (class added with JavaScript) */
+        #snackbar.show {
+            visibility: visible;
+            /* Show the snackbar */
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+  However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        /* Animations to fade the snackbar in and out */
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="w3-indigo">
+
+    <div id="header" class="w3-center w3-margin w3-card w3-white">
+        <svg viewBox="50 50 700 300">
+            <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="80%">StepWise</text>
+            </symbol>
+
+            <g class="g-ants">
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+        </svg>
+    </div>
+
+    <div id="Content" class=" w3-center w3-margin w3-padding-16 w3-card w3-white" style="min-height: 400px;">
+
+        <div class=" w3-padding w3-panel w3-pale-green w3-leftbar w3-rightbar w3-border-green   ">
+            <p>Enter Scenario Name:</p><input class="w3-input w3-text-teal" id="scname" required />
+        </div>
+        <button onclick="startRecording()" id="record" class="w3-btn w3-red w3-hover-teal w3-round-xxlarge ripple">Start
+            Recording</button>
+        <div class="w3-panel w3-margin w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
+            <p>Press <b>Ctrl + Shift + S </b>to record the steps </p><br/>
+            <p id="status"></p>
+        </div>
+        
+    </div>
+
+
+    <div id="snackbar"></div>
+    <!-- <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>. -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>

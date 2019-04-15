@@ -1,0 +1,41 @@
+{
+  "name": "StepWise",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/yogeshjog/StepWise",
+  "keywords": [
+    "Electron",
+    "StepWise",
+    "ScreenShots",
+    "Capture Screen",
+    "Record"
+  ],
+  "author": "Yogesh Jog",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^4.1.4",
+    "electron-builder": "^20.39.0"
+  },
+  "iohook": {
+    "targets": [
+      "node-64",
+      "electron-69"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  },
+  "dependencies": {
+    "desktop-screenshot": "^0.1.1",
+    "iohook": "^0.4.4"
+  }
+}
