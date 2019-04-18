@@ -21,6 +21,6 @@
 - [ ] View/Reorder the steps recorded
 
 
-
+> Let me know if any other stuff is required. Stay Tuned.
 > src folder will contain exact source code just do npm install in it.
 
