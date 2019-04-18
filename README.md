@@ -1,6 +1,6 @@
 # StepWise
 
-### > Open-Source steps recorder for Windows and Linux.
+>### Open-Source steps recorder for Windows and Linux.
 
 #### Download for Windows [here](https://app.box.com/s/yr1k4ja9xh1041teab7d0ewv1sixk674).
 
