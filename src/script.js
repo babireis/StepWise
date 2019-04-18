@@ -3,9 +3,10 @@ const electron = require('electron')
     screen=electron.screen,
     ioHook = require('iohook'),
     fs = require('fs'),
-    path = require('path')
-    screenshot = require('desktop-screenshot')
-    const {shell} = require('electron');
+    path = require('path'),
+    //screenshot = require('desktop-screenshot'),
+    screenshot = require('screenshot-desktop'),
+    {shell} = require('electron');
 
 //console.log(screen.getPrimaryDisplay().bounds.width);
 
@@ -14,7 +15,7 @@ var displayWidth=screen.getPrimaryDisplay().bounds.width;
 var displayHeight=screen.getPrimaryDisplay().bounds.height;
 //get current working directory
 var basepath = app.getPath('pictures');
-console.log(basepath);
+//console.log(basepath);
 //set global var for
 var recordingState = 0;
 
@@ -39,16 +40,31 @@ const id = ioHook.registerShortcut([29, 42, 31], (keys) => {
 
 function captureScreenShot(index) {
     var imgName = "Step_"+index + ".png";
-    screenshot(path.join(dir,imgName),{width: displayWidth, height: displayHeight}, function (error, complete) {
-        if (error) {
-            console.log("Screenshot failed", error);
-            displaySnackBar("Fail to record");
-        }
-        else {
-            console.log("Screenshot succeeded");
-            displaySnackBar("Recorded");
-        }
-    });
+    // screenshot(imgName,{width: displayWidth, height: displayHeight}, function (error, complete) {
+    //     if (error) {
+    //         console.log("Screenshot failed", error);
+    //         displaySnackBar("Fail to record");
+    //     }
+    //     else {
+    //         console.log("Screenshot succeeded");
+    //         displaySnackBar("Recorded");
+    //     }
+    // });
+    screenshot({format: 'png'}).then((img) => {
+        //clsdisplaySnackBar(dir);
+        fs.writeFile(path.join(dir,imgName), img, function (err) {
+            if (err) {
+                displaySnackBar("Failed");
+                console.log(err);
+            }else{
+               displaySnackBar("Recorded");
+            }
+          })
+    }).catch((err) => {
+        displaySnackBar("Failed");
+        console.log(err);
+      });
+        //screenshot({ filename: path.join(dir,imgName) });
 }
 
 setDefaultScenarioName();

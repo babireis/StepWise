@@ -2,6 +2,7 @@
   "name": "StepWise",
   "version": "0.0.1",
   "main": "main.js",
+  "description": "Screenshots wise steps recording app.",
   "scripts": {
     "start": "electron ."
   },
@@ -55,7 +56,7 @@
     "buildVersion": "0.1"
   },
   "dependencies": {
-    "desktop-screenshot": "^0.1.1",
-    "iohook": "^0.4.4"
+    "iohook": "^0.4.4",
+    "screenshot-desktop": "^1.7.0"
   }
 }
