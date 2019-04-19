@@ -56,7 +56,10 @@
     "buildVersion": "0.1"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "iohook": "^0.4.4",
+    "jquery": "^3.4.0",
+    "mdbootstrap": "^4.7.7",
     "screenshot-desktop": "^1.7.0"
   }
 }
