@@ -408,7 +408,7 @@ function startRecording() {
     if (x.value) {
         var recordBtn = document.getElementById("record");
         if (recordingState == 0) {
-            recordBtn.innerHTML = "Stop Recording";
+            recordBtn.innerText = "Stop Recording";
             dir = x.value;
             displaySnackBar("Recording Started");
             recordingState = 1;
@@ -423,7 +423,7 @@ function startRecording() {
             //     console.log('Shortcut called with keys:', keys)
             // });
         } else {
-            recordBtn.innerHTML = "Start Recording";
+            recordBtn.innerText = "Start Recording";
             recordingState = 0;
             x.disabled = false;
             setDefaultScenarioName();
