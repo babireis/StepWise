@@ -15,14 +15,14 @@
 
 ##### Upcoming Features v0.2
 
-- [ ] Multiple image formats supports
+- [ ] Jpg Support.
 - [ ] Export to pdf.
-- [ ] View/Reorder the steps recorded
-- [ ] Change default path 
-- [ ] Change initial prefix
-- [ ] Customize keyboard shorts
-- [ ] Record on Mouse  Click
-- [ ] Highlight Mouse Pointer / Cursor
+- [ ] View/Reorder the steps recorded.
+- [ ] Change default path.
+- [ ] Change initial prefix.
+- [ ] Customize keyboard shorts.
+- [ ] Record on Mouse  Click.
+- [ ] Highlight Mouse Pointer / Cursor.
 
 
 > Let me know if any other stuff is required. Stay Tuned.
