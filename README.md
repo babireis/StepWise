@@ -15,7 +15,6 @@
 
 ##### Upcoming Features v0.2
 
-- [ ] Customised path and prefix sequencing
 - [ ] Multiple image formats supports
 - [ ] Export to pdf.
 - [ ] View/Reorder the steps recorded
